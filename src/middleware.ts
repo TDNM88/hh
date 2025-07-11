@@ -3,11 +3,10 @@ import type { NextRequest } from 'next/server';
 
 // Danh sách domain được phép truy cập
 const allowedOrigins = [
-  'https://inal-hsc1.com',
-  'https://www.inal-hsc1.com',
+  'https://hsn-london.com',
+  'https://www.hsn-london.com',
   'https://london-hsc.com',
-  'https://www.london-hsc.com'
-  'https://family-neon.vercel.app'
+  'https://www.london-hsc.com',
   // Môi trường phát triển
   'http://localhost:3000',
   'http://127.0.0.1:3000',
