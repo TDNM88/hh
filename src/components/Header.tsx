@@ -149,8 +149,8 @@ export default function Header() {
               {user ? (
                 <Button variant="ghost" size="icon" className="rounded-full overflow-hidden h-8 w-8">
                   <Image 
-                    src={user.avatar || "/avatars/default.png"} 
-                    alt={user.username || "User"} 
+                    src={user?.avatar || "/avatars/default.png"} 
+                    alt={user?.username || "User"} 
                     width={32} 
                     height={32} 
                     className="h-full w-full object-cover"
