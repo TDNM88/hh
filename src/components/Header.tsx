@@ -16,6 +16,7 @@ import {
 import { User as UserIcon, LogOut, Wallet, CreditCard, ArrowUpRight, ArrowDownLeft, 
   Clock, ChevronDown, Phone, Menu, X } from "lucide-react"
 import loading from "@/app/(auth)/login/loading"
+import { User } from "@/types"
 
 export default function Header() {
   const router = useRouter()
@@ -48,6 +49,15 @@ export default function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [pathname])
+
+  // Extend User interface to include avatar property
+  interface ExtendedUser extends User {
+    avatar?: string;
+    username?: string;
+  }
+
+  // Cast user to ExtendedUser type
+  const typedUser = user as unknown as ExtendedUser;
 
   return (
     <header className={`bg-white border-b border-gray-100 sticky top-0 z-50 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
@@ -149,8 +159,8 @@ export default function Header() {
               {user ? (
                 <Button variant="ghost" size="icon" className="rounded-full overflow-hidden h-8 w-8">
                   <Image 
-                    src={user?.avatar || "/avatars/default.png"} 
-                    alt={user?.username || "User"} 
+                    src={typedUser.avatar || "/avatars/default.png"} 
+                    alt={typedUser.username || "User"} 
                     width={32} 
                     height={32} 
                     className="h-full w-full object-cover"
@@ -168,7 +178,7 @@ export default function Header() {
               {user ? (
                 <>
                   {/* Username display */}
-                  <div className="px-4 py-2 text-sm font-medium">{user.username || 'tdnm'}</div>
+                  <div className="px-4 py-2 text-sm font-medium">{typedUser.username || 'tdnm'}</div>
                   
                   <DropdownMenuItem onClick={() => router.push("/account")}>
                     <span>Tổng quan tài khoản</span>
