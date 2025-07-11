@@ -1,3 +1,4 @@
+// Import Next.js server components for middleware functionality
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
