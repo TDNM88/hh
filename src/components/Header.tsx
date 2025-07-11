@@ -200,6 +200,14 @@ export default function Header() {
               )}
             </DropdownMenuContent>
           </DropdownMenu>
+          <Button
+            variant="outline"
+            size="sm"
+            className="text-blue-600 border-blue-600 bg-white hover:bg-blue-50"
+            onClick={() => router.push("/login")}
+          >
+            Đăng nhập
+          </Button>
         </div>
       </div>
       
